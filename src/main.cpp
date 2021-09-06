@@ -8,7 +8,7 @@
 int main(int argc, char** argv){
 
     string firstFlag, secondFlag, algorithm, error = "Invalid parameters. Please, refer to ./tp1 -h or ./tp1 --help for more information.\n";;
-    int mode = 0;
+    int mode = 2;
     switch(argc){
         case 2:
             firstFlag = argv[1];
@@ -69,7 +69,7 @@ int main(int argc, char** argv){
         ans = dinamicPrograming(info);
 
     cout << algorithm << ": "<<  ans;
-    if(argc == 6){
+    if(algorithm == "bt"){
         string modes[3] = {"Optimization", "Factibility", "Optimization & Factibility"};
         cout << "  (mode: " << modes[mode] << ")";
     }
