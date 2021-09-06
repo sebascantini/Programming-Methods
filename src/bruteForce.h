@@ -3,7 +3,6 @@
 
 #include "headers.h"
 
-int bruteForce(info_t &info, int riesgo = 0, int beneficio = 0, int actual = -2);
-//la funcion arranca con actual = -2 ya que de esa manera el for arranca desde el local con indice 0;
+int bruteForce(const info_t &info, int i = 0, int riesgo = 0, int beneficio = 0);
 
 #endif

@@ -1,6 +1,6 @@
 CC=g++
 
-NAME=ejec
+NAME=tp1
 
 _DEPS = headers.h dinamicPrograming.h bruteForce.h backtracking.h
 DEPS = $(_DEPS)
