@@ -6,45 +6,25 @@
 // void tests();
 
 int main(int argc, char** argv){
+   
+    string filename, algorithm;
 
-    string firstFlag, secondFlag, algorithm, error = "Invalid parameters. Please, refer to ./tp1 -h or ./tp1 --help for more information.\n";;
-    int mode = 2;
-    switch(argc){
-        case 2:
-            firstFlag = argv[1];
-            if(firstFlag == "-h" || firstFlag == "--help")
-                cout << "\n./tp1 file.in -a algorithm -m mode\n\nAlgorithms:\n-bf: Brute Force\n-bt: Backtracking\n-dp: Dinamic Programing\n\nModes (Exclusive to bt):\n-0: Optimization\n-1: Factibility\n-2: Both\n\nExamples:\n./tp1 text.in -a dp\n./tp1 text.in -a bt\n./tp1 text.in -a bt -m 2\n\n";      
-            else
-                cout << error;
-            return 0;
-
-        case 4:
-            firstFlag = argv[2];
-            algorithm = argv[3];
-            if(firstFlag != "-a" || (algorithm != "bf" && algorithm != "bt" && algorithm != "dp")){
-                cout << error;
-                return 0;
-            }
-            break;
-
-        case 6:
-            firstFlag = argv[2];
-            algorithm = argv[3];
-            secondFlag = argv[4];
-            mode = atoi(argv[5]);
-            if(firstFlag != "-a" || algorithm != "bt" || secondFlag != "-m" || mode < 0 || mode > 2){
-                cout << error;
-                return 0;
-            }
-            break;
-
-        default:
-            cout << error;
-            return 0;
+    if(argc >= 2)
+        filename = argv[1];
+    if(filename == "-h" || filename == "--help"){
+        cout << "\n./tp1 file.in -a algorithm -m mode\n\nAlgorithms:\n-bf: Brute Force\n-bt: Backtracking\n-bto: Backtracking\n-btf: Backtracking\n-dp: Dinamic Programing\n";
+        return 0;
     }
+    else if(argc == 3)
+        algorithm = argv[2];
+    if(algorithm != "bf" && algorithm != "bt" && algorithm != "bto" && algorithm != "btf" && algorithm != "pd"){
+        cout << "Invalid parameters. Please, refer to ./tp1 -h or ./tp1 --help for more information.\n";
+        return 0;
+    }
+    
 
     ifstream file;
-    file.open(argv[1]);
+    file.open(filename);
 
     info_t info;
     
@@ -64,14 +44,18 @@ int main(int argc, char** argv){
     if(algorithm == "bf")
         ans = bruteForce(info);
     else if(algorithm == "bt")
-        ans = backtracking(info, mode);
+        ans = backtracking(info, 2);
+    else if(algorithm == "bto")
+        ans = backtracking(info, 0);
+    else if(algorithm == "btf")
+        ans = backtracking(info, 1);
     else if(algorithm == "dp")
         ans = dinamicPrograming(info);
 
     cout << algorithm << ": "<<  ans;
-    if(algorithm == "bt"){
+    if(algorithm[1] == 't'){
         string modes[3] = {"Optimization", "Factibility", "Optimization & Factibility"};
-        cout << "  (mode: " << modes[mode] << ")";
+        cout << "  (mode: " << modes[4-algorithm.size() - (algorithm.size() == 3 ? (algorithm[2] == 'o' ? 1 : 0) : 0)] << ")";
     }
     cout << endl;
     
