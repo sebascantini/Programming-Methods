@@ -12,7 +12,7 @@ int main(int argc, char** argv){
     if(argc >= 2)
         filename = argv[1];
     if(filename == "-h" || filename == "--help"){
-        cout << "\n./tp1 file.in -a algorithm -m mode\n\nAlgorithms:\n-bf: Brute Force\n-bt: Backtracking\n-bto: Backtracking\n-btf: Backtracking\n-dp: Dinamic Programing\n";
+        cout << "\n./tp1 file.in -a algorithm -m mode\n\nAlgorithms:\n-bf: Brute Force\n-bt: Backtracking (Optimization & Factibility)\n-bto: Backtracking (Optimization)\n-btf: Backtracking (Factibility)\n-dp: Dinamic Programing\n\n";
         return 0;
     }
     else if(argc == 3)
@@ -25,6 +25,11 @@ int main(int argc, char** argv){
 
     ifstream file;
     file.open(filename);
+
+    if(!file.is_open()){
+        cout << "File could not be opened";
+        return 0;
+    }
 
     info_t info;
     
@@ -52,10 +57,12 @@ int main(int argc, char** argv){
     else if(algorithm == "dp")
         ans = dinamicPrograming(info);
 
+    file.close();
+
     cout << algorithm << ": "<<  ans;
     if(algorithm[1] == 't'){
         string modes[3] = {"Optimization", "Factibility", "Optimization & Factibility"};
-        cout << "  (mode: " << modes[4-algorithm.size() - (algorithm.size() == 3 ? (algorithm[2] == 'o' ? 1 : 0) : 0)] << ")";
+        cout << "  (mode: " << modes[4 - algorithm.size() - (algorithm.size() == 3 ? algorithm[2] == 'o' : 0)] << ")";
     }
     cout << endl;
     
