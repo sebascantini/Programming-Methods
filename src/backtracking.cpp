@@ -11,9 +11,9 @@ int mejorBeneficio = 0;
 void calcularSufijos(const info_t &info){                     
     //copiamos los vectores de beneficios y contagios   
     sufijosBeneficio = info.beneficios;                 // O(1)
-    //vamos sumando hacia atras los valores
+    //vamos sumando adelante atras los valores
     for(int i = info.cantidad-2; i > 0; --i){           // O(n)
-        sufijosBeneficio[i] = sufijosBeneficio[i+1];    // O(1)
+        sufijosBeneficio[i] += sufijosBeneficio[i+1];    // O(1)
     } 
 }                                                       // TOTAL: O(n)
 
