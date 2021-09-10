@@ -17,7 +17,7 @@ int main(int argc, char** argv){
     }
     else if(argc == 3)
         algorithm = argv[2];
-    if(algorithm != "bf" && algorithm != "bt" && algorithm != "bto" && algorithm != "btf" && algorithm != "pd"){
+    if(algorithm != "bf" && algorithm != "bt" && algorithm != "bto" && algorithm != "btf" && algorithm != "dp"){
         cout << "Invalid parameters. Please, refer to ./tp1 -h or ./tp1 --help for more information.\n";
         return 0;
     }

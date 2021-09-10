@@ -11,11 +11,9 @@ int mejorBeneficio = 0;
 void calcularSufijos(const info_t &info){                     
     //copiamos los vectores de beneficios y contagios   
     sufijosBeneficio = info.beneficios;                 // O(1)
-    // sufijosRiesgo = info.contagios;
     //vamos sumando hacia atras los valores
     for(int i = info.cantidad-2; i > 0; --i){           // O(n)
-        sufijosBeneficio[i] = sufijosBeneficio[i+1];    // O(1) 
-        // sufijosRiesgo[i] = sufijosRiesgo[i+1];
+        sufijosBeneficio[i] = sufijosBeneficio[i+1];    // O(1)
     } 
 }                                                       // TOTAL: O(n)
 
@@ -30,7 +28,7 @@ int backtracking(const info_t &info, const int mode, int i, int riesgo, int bene
   //caso base
 
     if(i >= info.cantidad){                                     // O(1)
-        //mejorBeneficio = max(beneficio, mejorBeneficio);
+        mejorBeneficio = max(beneficio, mejorBeneficio);
         return beneficio;                                       // O(1)
     }
     
