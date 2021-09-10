@@ -23,9 +23,10 @@ int backtracking(const info_t &info, const int mode, int i, int riesgo, int bene
       potencial += info.beneficios[j];                    // O(1)
   
   //poda por optimalidad
-  potencial -= info.beneficios[i];                                  // O(1)
+  potencial -= info.beneficios[i];                     // O(1)
   if(mode % 2 == 0 && beneficio + potencial < mejorBeneficio)       // O(1)
       return -1;                                                    // O(1)
+  
 
   //poda por factibilidad
   if(mode >= 1 && riesgo > info.limite)                  // O(1)
@@ -33,7 +34,7 @@ int backtracking(const info_t &info, const int mode, int i, int riesgo, int bene
 
   //recursion
   int b1 = backtracking(info, mode, i+1, riesgo, beneficio, potencial); //no nos quedamos con este nodo                                            // O(1)
-  int b2 = backtracking(info, mode, i+2, riesgo + info.contagios[i], beneficio + info.beneficios[i], potencial - (potencial != 0) ? info.beneficios[i+1] : 0); //si nos quedamos con este nodo   // O(1)
+  int b2 = backtracking(info, mode, i+2, riesgo + info.contagios[i], beneficio + info.beneficios[i], potencial - (potencial != 0)?info.beneficios[i+1]:0); //si nos quedamos con este nodo   // O(1)
   return max(b1, b2);                                                                                                                              // O(1)
 }
 
