@@ -19,7 +19,7 @@ int backtracking(const info_t &info, const int mode, int i, int riesgo, int bene
   }
 
   if(i == 0)                                              // O(1)
-    for(int j = 1; j < info.cantidad; ++j)                // O(n)
+    for(int j = 0; j < info.cantidad; ++j)                // O(n)
       potencial += info.beneficios[j];                    // O(1)
   
   //poda por optimalidad
