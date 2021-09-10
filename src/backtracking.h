@@ -3,6 +3,6 @@
 
 #include "headers.h"
 
-int backtracking(const info_t &info, const int mode = 0, int i = 0, int sumaBenef = 0, int sumaCont = 0);
+int backtracking(const info_t &info, const int mode = 2, int i = 0, int riesgo = 0, int beneficio = 0, int potencial = 0);
 
 #endif
