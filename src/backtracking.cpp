@@ -35,7 +35,7 @@ int backtracking(const info_t &info, const int mode, int i, int riesgo, int bene
   //recursion
   int b1 = backtracking(info, mode, i+1, riesgo, beneficio, potencial); //no nos quedamos con este nodo                                            // O(1)
   int b2 = backtracking(info, mode, i+2, riesgo + info.contagios[i], beneficio + info.beneficios[i], potencial); //si nos quedamos con este nodo   // O(1)
-  return max((riesgo <= info.limite) ? b1 : 0, (riesgo+info.contagios[i] <= info.limite) ? b2 : 0);                                                // O(1)
+  return max(b1, b2);                                                                                                                              // O(1)
 }
 
 // O(2^n + n) = O(2^n) (el 2^n+n se debe a que ese n proviene de calcularSufijos, la cual corre solo una vez cuando i = 0 y cuando mode es par)
