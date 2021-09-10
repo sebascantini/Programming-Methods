@@ -13,6 +13,7 @@ int mejorBeneficio = 0;
 int backtracking(const info_t &info, const int mode, int i, int riesgo, int beneficio, int potencial){
   //caso base
   if(i >= info.cantidad){                                     // O(1)
+    beneficio = (riesgo <= info.limite) ? beneficio : 0;      // O(1)
     mejorBeneficio = max(beneficio, mejorBeneficio);          // O(1)
     return beneficio;                                         // O(1)
   }
