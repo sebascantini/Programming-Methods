@@ -3,26 +3,25 @@
 
 vector<int> used;
 int bruteForce(const info_t &info, int i,bool valido, int riesgo, int beneficio){
-  
+  //caso base
+  if(i >= info.cantidad)                                                                   // O(1)
+    return beneficio;
+
   if(i == 0)
     used = vector<int> (info.limite,0);
-  
-  //caso base
-    if(i >= info.cantidad){                                                                                                   // O(1)
-        return beneficio;
-    }
+    
   //recursion
-    int b1,b2;
-    used[i] = 0;                                                                                                                // O(1)
-    b1 = bruteForce(info , i+1, valido, riesgo, beneficio); //no nos quedamos con este nodo                                           // O(1)
-    used[i] = 1;
-    b2 = bruteForce(info, i+1, valido && (i == 0 || used[i-1] == 0), riesgo + info.contagios[i], beneficio + info.beneficios[i]); //si nos quedamos con este nodo   // O(1)
-    //b2 valida el camino si:
-    //   1) el camino era valido originalmente
-    //   2) se cumplen una de las dos siguiente condiciones:
-    //       a) estamos en el primer nodo ya que este siempre es valido
-    //       b) no se utilizo el nodo anterior
-    return max((valido && riesgo <= info.limite) ? b1 : 0, (valido && riesgo+info.contagios[i] <= info.limite) ? b2 : 0);                         // O(1)
+  int b1,b2;
+  used[i] = 0;                                                                                                     // O(1)
+  b1 = bruteForce(info , i+1, valido, riesgo, beneficio); //no nos quedamos con este nodo                          // O(1)
+  used[i] = 1;
+  b2 = bruteForce(info, i+1, valido && (i == 0 || used[i-1] == 0), riesgo + info.contagios[i], beneficio + info.beneficios[i]); //si nos quedamos con este nodo   // O(1)
+  //b2 valida el camino si:
+  //   1) el camino era valido originalmente
+  //   2) se cumplen una de las dos siguiente condiciones:
+  //       a) estamos en el primer nodo ya que este siempre es valido
+  //       b) no se utilizo el nodo anterior
+  return max((valido && riesgo <= info.limite) ? b1 : 0, (valido && riesgo+info.contagios[i] <= info.limite) ? b2 : 0);             // O(1)
 }
 
 // int bruteForce(const info_t &info, int i, int riesgo, int beneficio){
