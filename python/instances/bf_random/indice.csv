@@ -1,0 +1,12 @@
+dataset,instance,n,m,file
+bf_random,bf_random-12,12,365,instances/bf_random/bf_random-12.txt
+bf_random,bf_random-15,15,946,instances/bf_random/bf_random-15.txt
+bf_random,bf_random-18,18,409,instances/bf_random/bf_random-18.txt
+bf_random,bf_random-21,21,260,instances/bf_random/bf_random-21.txt
+bf_random,bf_random-24,24,809,instances/bf_random/bf_random-24.txt
+bf_random,bf_random-27,27,257,instances/bf_random/bf_random-27.txt
+bf_random,bf_random-30,30,142,instances/bf_random/bf_random-30.txt
+bf_random,bf_random-33,33,179,instances/bf_random/bf_random-33.txt
+bf_random,bf_random-36,36,788,instances/bf_random/bf_random-36.txt
+bf_random,bf_random-39,39,768,instances/bf_random/bf_random-39.txt
+bf_random,bf_random-42,42,736,instances/bf_random/bf_random-42.txt

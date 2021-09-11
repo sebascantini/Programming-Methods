@@ -1,0 +1,8 @@
+dataset,instance,n,m,file
+prueba,prueba-2,2,60,instances/prueba/prueba-2.txt
+prueba,prueba-7,7,210,instances/prueba/prueba-7.txt
+prueba,prueba-12,12,360,instances/prueba/prueba-12.txt
+prueba,prueba-17,17,510,instances/prueba/prueba-17.txt
+prueba,prueba-22,22,660,instances/prueba/prueba-22.txt
+prueba,prueba-27,27,810,instances/prueba/prueba-27.txt
+prueba,prueba-32,32,960,instances/prueba/prueba-32.txt
