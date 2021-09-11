@@ -23,9 +23,10 @@ int backtracking(const info_t &info, const int mode, int i, int riesgo, int bene
       potencial += info.beneficios[j];                    // O(1)
   
   //poda por optimalidad
-  potencial -= info.beneficios[i];                                  // O(1)
   if(mode % 2 == 0 && beneficio + potencial < mejorBeneficio)       // O(1)   modo 0 o 2 incluye optimalidad
       return -1;                                                    // O(1)
+  
+  potencial -= info.beneficios[i];                                  // O(1)
   
   //poda por factibilidad
   if(mode >= 1 && riesgo > info.limite)                  // O(1)              modo 1 y 2 incluye factibilidad
