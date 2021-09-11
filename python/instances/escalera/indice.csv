@@ -1,0 +1,8 @@
+dataset,instance,n,m,file
+escalera,escalera-1,1,0,instances/escalera/escalera-1.txt
+escalera,escalera-6,6,14,instances/escalera/escalera-6.txt
+escalera,escalera-11,11,48,instances/escalera/escalera-11.txt
+escalera,escalera-16,16,102,instances/escalera/escalera-16.txt
+escalera,escalera-21,21,176,instances/escalera/escalera-21.txt
+escalera,escalera-26,26,270,instances/escalera/escalera-26.txt
+escalera,escalera-31,31,384,instances/escalera/escalera-31.txt
